@@ -256,7 +256,7 @@ if __name__ == "__main__" :
         array = numpy.array(test_data[1][i]).astype('float32')
         pred = ppp([array])[0]
         im = draw(array)
-        im.save('%s/face_predict/%s_%s_%s.jpg' % (base_route, i, pred, test_data[2][i]))
+        im.save('%s/predict_result/%s_%s_%s.jpg' % (base_route, i, pred, test_data[2][i]))
 
     
     
