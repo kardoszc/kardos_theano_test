@@ -12,8 +12,7 @@ import theano.tensor as T
 
 import Image, ImageDraw
 
-
-base_route = '/mnt/hgfs/kardos_test/theano/face_predict'
+base_route = os.path.split(os.path.realpath(__file__))[0]
 
 class LogisticRegression(object):  
     def __init__(self, input, n_in, n_out):  

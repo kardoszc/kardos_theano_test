@@ -12,6 +12,9 @@ import theano.tensor as T
 
 import Image, ImageDraw
 
+
+base_route = os.path.split(os.path.realpath(__file__))[0]
+
 #参数说明：  
 #input，输入的一个batch，假设一个batch有n个样本(n_example)，则input大小就是(n_example,n_in)  
 #n_in,每一个样本的大小，MNIST每个样本是一张28*28的图片，故n_in=784  
@@ -334,4 +337,4 @@ if __name__ == "__main__" :
     for i in range(10000):
         pred = ppp([test[0][i]])[0]
         im = draw(test[0][i])
-        im.save('/mnt/hgfs/kardos_test/theano/mnist/result/%s_%s_%s.jpg' % (i,pred, test[1][i]))
+        im.save('%s/result/%s_%s_%s.jpg' % (base_route , i , pred , test[1][i]))
