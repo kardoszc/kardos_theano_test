@@ -87,10 +87,10 @@ class LogisticRegression(object):
 def draw(data):
     im = Image.new('RGBA', (280,280), 'white')
     draw = ImageDraw.Draw(im)
-    for i in range(28):
-        for j in range(28):
+    for j in range(28):
+        for i in range(28):
             poly = [(i*10, j*10), (i*10 + 10, j*10), (i*10 + 10, j*10 + 10), (i*10, j*10 + 10)]
-            color = (int(data[i*28 + j] * 255),) * 3
+            color = (int(data[j*28 + i] * 255),) * 3
             draw.polygon(poly, color)
     return im
 
@@ -331,7 +331,7 @@ if __name__ == "__main__" :
 
     cls, test = sgd_optimization_mnist()
     ppp = cls.predict_function()
-    # for i in range(10000):
-    #     pred = ppp([test[0][i]])[0]
-    #     im = draw(test[0][i])
-    #     im.save('/media/sf_kardos_test/theano/im/%s_%s_%s.jpg' % (i,pred, test[1][i]))
+    for i in range(10000):
+        pred = ppp([test[0][i]])[0]
+        im = draw(test[0][i])
+        im.save('/mnt/hgfs/kardos_test/theano/mnist/result/%s_%s_%s.jpg' % (i,pred, test[1][i]))
